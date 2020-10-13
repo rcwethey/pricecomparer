@@ -1,0 +1,45 @@
+.searchBar {
+  &_form{
+    display: flex;
+    flex-direction: row;
+    margin: 5rem;
+    justify-content: center;
+
+    &_subcontainer{
+      display: inherit;
+      justify-content: space-between;
+      width: 80%;
+      height: 2.5rem;
+      border: 1.5px solid black ;
+      border-radius: 2.5rem;
+
+      &_input{
+        display: flex;
+        width: 80%;
+        margin-left: 5%;
+        border-radius: 2.5rem;
+        border-style: none;
+        outline-style: none;
+        font-size: 16px;
+        color: black;
+
+        &input{
+          background-color: inherit;
+          &:-internal-autofill-previewed{
+            background-color: inherit !important;
+          }
+        }
+      }
+
+      &_button{
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        margin-right: 5%;
+        border: none;
+        background-color: inherit;
+        outline-style: none;
+      }
+    }
+  } 
+}

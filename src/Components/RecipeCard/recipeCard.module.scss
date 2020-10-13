@@ -1,0 +1,110 @@
+.Results { 
+  margin-left: 15px
+}
+
+.container{
+  display: flex;
+  margin: 0px 10px;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  background-color: rgba(25, 133, 161, 0.5);
+  margin: 10px 10px;
+  border-radius: 30px;
+
+  &__row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 20rem;
+    justify-content: space-between;
+
+    &_section{
+      display: flex;
+      margin: 0.5rem 0px 0px 0.5rem;
+      flex-direction: column;
+      align-self: flex-start;
+      width: 10rem;
+      color: black;
+      justify-items: flex-start;
+    
+      &_item{
+        margin: 4px 10px;
+        padding: 4px 4px;
+        display: flex;
+        font-size: 12px;
+        height: 16px;
+        width: 2rem;
+        background-color: rgba(256, 255, 255, 0.75);
+        box-shadow: 0px 0px 5px black;
+        justify-content: space-around;
+        border-radius: 20px;
+        align-items: center;
+
+        &_mins{
+          display: flex;
+          margin: 4px 10px;
+          padding: 4px 4px;
+          height: 16px;
+          width: 5rem;
+          font-size: 12px;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+          background-color: rgba(255, 255, 255, 0.75);
+          box-shadow: 0px 0px 5px black;
+          border-radius: 20px;
+        }
+      }
+    }
+
+    &_section2{
+      display: flex;
+      width: 10rem;
+
+      &_img{
+        display: flex;
+        object-fit: cover;
+        height: 150px;
+        width: 150px;
+        margin: 0.5rem 0.5rem 1rem 0rem;
+        box-shadow: 0px 0px 10px -4px black;
+        border-radius: 75px;
+      }
+  
+      &_likes {
+        display: flex;
+        height: 75px;
+        width: 100px;
+        transform: translate(-67px, -17px);
+  
+        &_num {
+          margin: 0px 0px;
+          height: 10px;
+          display: flex;
+          align-items: center;
+          border-radius: 20px;
+          padding: 8px;
+          background-color: rgba(255, 255, 255, 1);
+          transform: translate(-25px, 12px);
+          box-shadow: 0px 0px 5px -1px;
+        }
+      }
+    }
+  }
+
+  &_title{
+    display: flex;
+    padding: 0rem 0.5rem 0rem 1rem;
+    justify-content: flex-start;
+    font-size: 24px;
+    margin: 0rem 1rem 0.5rem;
+    height: 4rem;
+  }
+}
+
+
+
