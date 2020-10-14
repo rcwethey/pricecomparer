@@ -1,27 +1,15 @@
-import React, { createContext, useMemo, useState } from 'react';
+import React, { createContext, useContext, useState, useMemo } from 'react';
 
-export const SearchContext = createContext();
-export const ReuqestContext = createContext();
+const SearchContext = createContext();
+export const useSearchContext = () => useContext(SearchContext);
 
 const SearchContextProvider = ({children}) => {
   const [searchValue, setSearchValue] = useState('');
-  const [sendRequest, setSendRequest] = useState(false);
-
-  const search = useMemo(() => ({
-    searchValue,
-    setSearchValue
-  }), [searchValue])
-
-  const request = useMemo(() => ({
-    sendRequest,
-    setSendRequest
-  }), [sendRequest])
+  const search = useMemo(() => ({ searchValue, setSearchValue }), [searchValue]);
 
   return (
     <SearchContext.Provider value={search}>
-      <ReuqestContext.Provider value={request}>
         {children}
-      </ReuqestContext.Provider>
     </SearchContext.Provider>
   );
 }

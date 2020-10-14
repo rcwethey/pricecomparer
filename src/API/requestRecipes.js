@@ -5,9 +5,8 @@ import RecipeCard from '../Components/RecipeCard';
 const RequestRecipe = ({newData}) => {
   const [newResultArr, setNewResultArr] = useState([]);
   const results = newData.results;
+  console.log(newData);
 
-  //* THis is a little weird, not sure if this will work, but I am trying to get it to work asyncronously before I have to change it back. 
-  //* If it doesn't work the commented out stuff is the old synchronous code. 
   useEffect(() => {
     setNewResultArr([]);
     for(let i=0; i<results.length-1; i++){
@@ -20,12 +19,9 @@ const RequestRecipe = ({newData}) => {
     }
   }, [newData, results])
 
-  return (
-    <>
-      {(newResultArr.length+1 === results.length) 
-        && <RecipeCard arr={newResultArr}/> }
-    </>
-  );
+  console.log(newResultArr);
+
+  return ( <> {(newResultArr.length+1 === results.length) && <RecipeCard arr={newResultArr}/> } </> );
 }
 
 export default RequestRecipe;

@@ -1,32 +1,31 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { API_KEY } from '../config/env.json';
-import { ReuqestContext, SearchContext } from '../context/searchContext';
-import RequestRecipe from './API/requestRecipes';
+import { useSearchContext } from '../context/searchContext';
+import RequestRecipe from './requestRecipes';
 
-const TitleCard = () => {
+const RequestSearchValue = () => {
   const [data, setData] = useState(null);
-  const {setSendRequest, sendRequest} = useContext(ReuqestContext);
-  const {searchValue} = useContext(SearchContext);
+  const {searchValue} = useSearchContext();
+
+  console.log(searchValue);
 
   useEffect(() => {
-    if(sendRequest){
-      async function fetchData(){
-        const result = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${searchValue}`, {
-        "method": "GET",
-        "headers": {
-          "Content-Type": "application/JSON", 
-          }
-        })
-        const response = await result.json(); 
-        setData(response);
-        setSendRequest(false);
-      }
-      fetchData()
+    if(searchValue !== ''){
+      fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${searchValue}`, {
+      "method": "GET",
+      "headers": {
+        "Content-Type": "application/JSON", 
+        }
+      })
+      .then(result => result.json())
+      .then(response => setData(response))
     }
   // eslint-disable-next-line
-  }, [searchValue, sendRequest]);
+  }, [searchValue]);
+
+  console.log(data);
 
   return ( <> {data !== null && <RequestRecipe newData={data}/>} </> );
 }
 
-export default TitleCard;
+export default RequestSearchValue;

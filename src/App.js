@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchContextProvider from './context/searchContext';
 import Seach from './Components/SearchBar';
-import RecipeCards from './Components/RecipeCard';
+import RequestSearchValue from './API/requestSearchValue';
 import classes from './App.module.scss';
 
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
     <SearchContextProvider>
       <div className={classes.app}>
         <Seach />
-        <RecipeCards />
+        <RequestSearchValue />
       </div>
     </SearchContextProvider>
   );

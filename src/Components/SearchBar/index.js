@@ -1,16 +1,14 @@
-import React, { useContext, useRef } from 'react';
+import React, { useRef } from 'react';
 import classes from './searchbar.module.scss';
-import { ReuqestContext, SearchContext } from '../../context/searchContext';
+import { useSearchContext } from '../../context/searchContext';
 
 const SearchBar = () => {
-  const {setSearchValue} = useContext(SearchContext);
-  const {setSendRequest} = useContext(ReuqestContext);
+  const {setSearchValue} = useSearchContext();
   const search = useRef();
 
   const submitSearch = e => {
     e.preventDefault();
     setSearchValue(search.current.value);
-    setSendRequest(true);
   }
 
   return (
